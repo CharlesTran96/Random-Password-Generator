@@ -1,5 +1,5 @@
-var characters = "abcdefghijklmnopqistuvwxzyABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*_-+=";
-var password = "";
+var characters = [];
+// var password = "";
 
 var generate = function() {
 
@@ -7,39 +7,51 @@ var generate = function() {
 
     if (!userChoice) {
       return;
-    } 
+    }; 
 
-    var lengthChoice = window.prompt ("Amount of Characters Needed?")
+    var lengthChoice = window.prompt ("Amount of Characters Needed?");
 
     if (lengthChoice <= 7 || lengthChoice >= 129) {
-      window.alert ("Password Length must be between 8-128 Characters")
-      generate();
+      window.alert ("Password Length must be between 8-128 Characters");
+      var lengthChoice = window.prompt ("Amount of Characters Needed?");
     }
-  
+
     var lowercasesChoice = window.confirm ("Include Lowercases?");
+
+    if (lowercasesChoice === true) {
+      characters.push ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+    }
+
+    console.log(characters);
 
     var uppercasesChoice = window.confirm ("Include Upercases?")
 
-    var numbersChoice = window.confirm ("Include Numbers?")
+    if (uppercasesChoice === true) {
+      characters.push ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+    }
 
-    var symbolschoice = window.confirm ("Include Symbols?")
+    console.log(characters);
 
-    if (lowercasesChoice === uppercasesChoice === numbersChoice === symbolschoice) {
-      for (var i = 0, n = characters.length; i < lengthChoice; ++i) {
-        password += characters.charAt(Math.floor(Math.random() * n));
-    }}
+    var numbersChoice = window.confirm ("Include Numbers?");
 
-    else if (lowercasesChoice === uppercasesChoice === numbersChoice !== symbolschoice) {
-      for (var i = 0; i <= lengthChoice; i++) {
-        var randomNumber = Math.floor(Math.random() * 62);
-        password += characters[randomNumber];
-    }}
+    if (numbersChoice === true) {
+      characters.push ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+    }
 
-    else if (lowercasesChoice === uppercasesChoice !== numbersChoice !== symbolschoice) {
-      for (var i = 0; i <= lengthChoice; i++) {
-        var randomNumber = Math.floor(Math.random() * 52);
-        password += characters[randomNumber];
-    }}
+    console.log(characters);
+
+    var symbolsChoice = window.confirm ("Include Symbols?");
+
+    if (symbolsChoice === true) {
+      characters.push ("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+");
+    }
+
+    console.log(characters);
+
+    // for (var i = 0; i = lengthChoice; i++) {
+      var index = Math.floor(Math.random() * characters.length);
+      var password = characters[index] * lengthChoice;
+    // }
 
     console.log(password);
 
