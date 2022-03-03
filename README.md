@@ -4,7 +4,7 @@ Random password generator creates a password from the selection criteria avaliab
 
 ## Usage
 
-![Screenshot of live page](https://github.com/CharlesTran96/Random-Password-Generator/blob/main/live.jpg?raw=true))
+![Screenshot of live page](https://github.com/CharlesTran96/Random-Password-Generator/blob/main/live.jpg)
 
 ## Link
 [Random Password Generator](https://charlestran96.github.io/Random-Password-Generator/)
