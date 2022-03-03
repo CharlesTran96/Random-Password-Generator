@@ -1,9 +1,14 @@
-var characters = [];
-// var password = "";
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
 
-var generate = function() {
+// Write password to the #password input
+function writePassword() {
+  // var password = generatePassword();
+  // var passwordText = document.querySelector("#password");
+  var characters = [];
+  var password = "";
 
-    var userChoice = window.confirm ("Please answer the following to determine which password criteria is needed to be met");
+  var userChoice = window.confirm ("Please answer the following to determine which password criteria is needed to be met");
 
     if (!userChoice) {
       return;
@@ -48,13 +53,18 @@ var generate = function() {
 
     console.log(characters);
 
-    // for (var i = 0; i = lengthChoice; i++) {
-      var index = Math.floor(Math.random() * characters.length);
-      var password = characters[index] * lengthChoice;
-    // }
-
-    console.log(password);
-
+    for (var i = 0; i < lengthChoice; i++) {
+      var randomIndex = Math.floor(Math.random() * characters.length);
+      password += characters[randomIndex];
   }
 
-  generate();
+  console.log(password);
+
+  window.alert ("Your randomly generated password is " + password);
+
+  return;
+
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
